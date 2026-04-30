@@ -1,0 +1,36 @@
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    networks:
+      - ai-net
+
+  webserver:
+    image: ai-webserver:latest
+    container_name: webserver
+    ports:
+      - "5000:5000"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./webapp:/app
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - ai-net
+
+networks:
+  ai-net:
+
+volumes:
+  ollama_data:
+    external: true
