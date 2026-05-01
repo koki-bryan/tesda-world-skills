@@ -1,0 +1,122 @@
+[
+  {
+    "model": "llama3.2",
+    "responses": [
+      {
+        "prompt": "What is artificial intelligence?",
+        "response_time_seconds": 62.398,
+        "output_tokens": 429,
+        "input_tokens": 30,
+        "response_preview": "Artificial intelligence (AI) refers to the development of computer systems that can perform tasks th"
+      },
+      {
+        "prompt": "Explain machine learning in simple terms.",
+        "response_time_seconds": 5.158,
+        "output_tokens": 366,
+        "input_tokens": 33,
+        "response_preview": "Machine learning is a way for computers to learn and get better at doing tasks on their own, without"
+      },
+      {
+        "prompt": "What is the capital of the Philippines?",
+        "response_time_seconds": 0.255,
+        "output_tokens": 9,
+        "input_tokens": 33,
+        "response_preview": "The capital of the Philippines is Manila."
+      },
+      {
+        "prompt": "Write a haiku about technology.",
+        "response_time_seconds": 0.33,
+        "output_tokens": 16,
+        "input_tokens": 32,
+        "response_preview": "Glowing screens surround\n Connections weave the web fast\nDigital dreams born"
+      },
+      {
+        "prompt": "What are the benefits of renewable energy?",
+        "response_time_seconds": 4.821,
+        "output_tokens": 360,
+        "input_tokens": 33,
+        "response_preview": "The benefits of renewable energy are numerous and significant. Some of the most important advantages"
+      }
+    ]
+  },
+  {
+    "model": "mistral",
+    "responses": [
+      {
+        "prompt": "What is artificial intelligence?",
+        "response_time_seconds": 8.907,
+        "output_tokens": 182,
+        "input_tokens": 9,
+        "response_preview": " Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are pr"
+      },
+      {
+        "prompt": "Explain machine learning in simple terms.",
+        "response_time_seconds": 5.726,
+        "output_tokens": 202,
+        "input_tokens": 12,
+        "response_preview": " Machine learning is a method of teaching computers to learn and make decisions on their own, based "
+      },
+      {
+        "prompt": "What is the capital of the Philippines?",
+        "response_time_seconds": 1.395,
+        "output_tokens": 52,
+        "input_tokens": 12,
+        "response_preview": " The capital city of the Philippines is Manila. It's located on the island of Luzon and is one of th"
+      },
+      {
+        "prompt": "Write a haiku about technology.",
+        "response_time_seconds": 1.937,
+        "output_tokens": 20,
+        "input_tokens": 11,
+        "response_preview": " Connected worlds spin,\n\nSilence broken by screens,\n\nInvisible threads."
+      },
+      {
+        "prompt": "What are the benefits of renewable energy?",
+        "response_time_seconds": 14.523,
+        "output_tokens": 518,
+        "input_tokens": 13,
+        "response_preview": " Renewable energy sources offer numerous benefits for our planet and its inhabitants:\n\n1. Reduced Gr"
+      }
+    ]
+  },
+  {
+    "model": "phi3",
+    "responses": [
+      {
+        "prompt": "What is artificial intelligence?",
+        "response_time_seconds": 4.745,
+        "output_tokens": 103,
+        "input_tokens": 14,
+        "response_preview": "Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are des"
+      },
+      {
+        "prompt": "Explain machine learning in simple terms.",
+        "response_time_seconds": 2.403,
+        "output_tokens": 155,
+        "input_tokens": 17,
+        "response_preview": "Machine learning is a type of artificial intelligence that enables computers to learn and make decis"
+      },
+      {
+        "prompt": "What is the capital of the Philippines?",
+        "response_time_seconds": 2.167,
+        "output_tokens": 140,
+        "input_tokens": 17,
+        "response_preview": "The capital of the Philippines is Manila. Located in the southern part of Luzon, it serves as both a"
+      },
+      {
+        "prompt": "Write a haiku about technology.",
+        "response_time_seconds": 0.537,
+        "output_tokens": 33,
+        "input_tokens": 16,
+        "response_preview": "Silicon dreams pulse,  \n\nTech whispers through circuits' hum,  \n\nInnovation blooms.   \n\n"
+      },
+      {
+        "prompt": "What are the benefits of renewable energy?",
+        "response_time_seconds": 11.898,
+        "output_tokens": 777,
+        "input_tokens": 18,
+        "response_preview": "Renewable energy has numerous benefits that contribute to environmental conservation, economic growt"
+      }
+    ]
+  }
+]
