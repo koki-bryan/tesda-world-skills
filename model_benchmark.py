@@ -1,44 +1,46 @@
-import requests, json, time
+import requests, time, json
 
-PROMPTS = [
-    "What is artificial intelligence?",
-    "Explain machine learning in simple terms.",
-    "What is the capital of the Philippines?",
-    "Write a haiku about technology.",
-    "What are the benefits of renewable energy?"
+# Array creation similar to JS, syntax =[]
+PROMPTS=[
+    "What is the capital of Philippines",
+    "Write a 5-word sentence about a robot eating pizza.",
+    "if all Bloops are Razzies and all Razzies are Lulus, are all Bloops definitely Lulus?",
+    "What is the chemical symbol for gold?",
+    "Translate 'Where is the library' into Filipino"
 ]
 
-MODELS = ["llama3.2", "mistral", "phi3"]
-OLLAMA_URL = "http://localhost:11434/api/generate"
+ollama_url="http://localhost:11434/api/generate"
+MODELS=["mistral", "phi3", "llama3.2"]
+result_output=[]
 
-results = []
-for model in MODELS:
-    print(f"\n--- {model} ---")
-    model_data = {"model": model, "responses": []}
-    for i, p in enumerate(PROMPTS, 1):
-        print(f"  [{i}/5] {p[:50]}...", end=" ", flush=True)
-        start = time.time()
-        try:
-            r = requests.post(OLLAMA_URL, json={
-                "model": model, "prompt": p, "stream": False
-            }, timeout=120)
-            r.raise_for_status()
-            resp = r.json()
-            elapsed = round(time.time() - start, 3)
-            item = {
-                "prompt": p,
-                "response_time_seconds": elapsed,
-                "output_tokens": resp.get("eval_count", 0),
-                "input_tokens": resp.get("prompt_eval_count", 0),
-                "response_preview": resp.get("response", "")[:100]
-            }
-            print(f"✓ {elapsed}s, {item['output_tokens']} tokens")
-        except Exception as e:
-            print(f"✗ ERROR: {e}")
-            item = {"prompt": p, "error": str(e)}
-        model_data["responses"].append(item)
-    results.append(model_data)
-
-with open("/home/competitor/project/benchmark_results.json", "w") as f:
-    json.dump(results, f, indent=2)
-print("\n benchmark_results.json saved")
+for i in MODELS:
+    print(f"-----{i.capitalize()}-----")
+    
+    for j, h in enumerate(PROMPTS):
+        payload={
+            "model":i,
+            "prompt":h,
+            "stream":False
+        }
+        start=time.time()
+        r=requests.post(ollama_url, json=payload) #you need to convert the dictionary to json
+        data=r.json()
+        end=time.time()
+        
+        responseTime=(end-start)
+        
+        #Compiling the results of each model
+        result_payload={
+            "model":i,
+            "prompt":h,
+            "response":data['response'],
+            "response_time":responseTime,
+            "tokens": data['eval_count'],
+        }
+        result_output.append(result_payload)
+        
+        print(f"[{j+1}/5] {h} | {responseTime:.2f}s {data['eval_count']} tokens")
+        
+output_path="/home/competitor/project/benchmark_results.json"
+with open(output_path, "w") as f:
+    json.dump(result_output, f, indent=4)

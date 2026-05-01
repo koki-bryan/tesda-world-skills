@@ -1,122 +1,107 @@
 [
-  {
-    "model": "llama3.2",
-    "responses": [
-      {
-        "prompt": "What is artificial intelligence?",
-        "response_time_seconds": 62.398,
-        "output_tokens": 429,
-        "input_tokens": 30,
-        "response_preview": "Artificial intelligence (AI) refers to the development of computer systems that can perform tasks th"
-      },
-      {
-        "prompt": "Explain machine learning in simple terms.",
-        "response_time_seconds": 5.158,
-        "output_tokens": 366,
-        "input_tokens": 33,
-        "response_preview": "Machine learning is a way for computers to learn and get better at doing tasks on their own, without"
-      },
-      {
-        "prompt": "What is the capital of the Philippines?",
-        "response_time_seconds": 0.255,
-        "output_tokens": 9,
-        "input_tokens": 33,
-        "response_preview": "The capital of the Philippines is Manila."
-      },
-      {
-        "prompt": "Write a haiku about technology.",
-        "response_time_seconds": 0.33,
-        "output_tokens": 16,
-        "input_tokens": 32,
-        "response_preview": "Glowing screens surround\n Connections weave the web fast\nDigital dreams born"
-      },
-      {
-        "prompt": "What are the benefits of renewable energy?",
-        "response_time_seconds": 4.821,
-        "output_tokens": 360,
-        "input_tokens": 33,
-        "response_preview": "The benefits of renewable energy are numerous and significant. Some of the most important advantages"
-      }
-    ]
-  },
-  {
-    "model": "mistral",
-    "responses": [
-      {
-        "prompt": "What is artificial intelligence?",
-        "response_time_seconds": 8.907,
-        "output_tokens": 182,
-        "input_tokens": 9,
-        "response_preview": " Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are pr"
-      },
-      {
-        "prompt": "Explain machine learning in simple terms.",
-        "response_time_seconds": 5.726,
-        "output_tokens": 202,
-        "input_tokens": 12,
-        "response_preview": " Machine learning is a method of teaching computers to learn and make decisions on their own, based "
-      },
-      {
-        "prompt": "What is the capital of the Philippines?",
-        "response_time_seconds": 1.395,
-        "output_tokens": 52,
-        "input_tokens": 12,
-        "response_preview": " The capital city of the Philippines is Manila. It's located on the island of Luzon and is one of th"
-      },
-      {
-        "prompt": "Write a haiku about technology.",
-        "response_time_seconds": 1.937,
-        "output_tokens": 20,
-        "input_tokens": 11,
-        "response_preview": " Connected worlds spin,\n\nSilence broken by screens,\n\nInvisible threads."
-      },
-      {
-        "prompt": "What are the benefits of renewable energy?",
-        "response_time_seconds": 14.523,
-        "output_tokens": 518,
-        "input_tokens": 13,
-        "response_preview": " Renewable energy sources offer numerous benefits for our planet and its inhabitants:\n\n1. Reduced Gr"
-      }
-    ]
-  },
-  {
-    "model": "phi3",
-    "responses": [
-      {
-        "prompt": "What is artificial intelligence?",
-        "response_time_seconds": 4.745,
-        "output_tokens": 103,
-        "input_tokens": 14,
-        "response_preview": "Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are des"
-      },
-      {
-        "prompt": "Explain machine learning in simple terms.",
-        "response_time_seconds": 2.403,
-        "output_tokens": 155,
-        "input_tokens": 17,
-        "response_preview": "Machine learning is a type of artificial intelligence that enables computers to learn and make decis"
-      },
-      {
-        "prompt": "What is the capital of the Philippines?",
-        "response_time_seconds": 2.167,
-        "output_tokens": 140,
-        "input_tokens": 17,
-        "response_preview": "The capital of the Philippines is Manila. Located in the southern part of Luzon, it serves as both a"
-      },
-      {
-        "prompt": "Write a haiku about technology.",
-        "response_time_seconds": 0.537,
-        "output_tokens": 33,
-        "input_tokens": 16,
-        "response_preview": "Silicon dreams pulse,  \n\nTech whispers through circuits' hum,  \n\nInnovation blooms.   \n\n"
-      },
-      {
-        "prompt": "What are the benefits of renewable energy?",
-        "response_time_seconds": 11.898,
-        "output_tokens": 777,
-        "input_tokens": 18,
-        "response_preview": "Renewable energy has numerous benefits that contribute to environmental conservation, economic growt"
-      }
-    ]
-  }
+    {
+        "model": "mistral",
+        "prompt": "What is the capital of Philippines",
+        "response": " The capital of the Philippines is Manila. It's one of the sixteen cities that make up Metro Manila, the most populous metropolitan area in the country.",
+        "response_time": 9.288361549377441,
+        "tokens": 36
+    },
+    {
+        "model": "mistral",
+        "prompt": "Write a 5-word sentence about a robot eating pizza.",
+        "response": " Robot savors warm, cheesy pizza slice.",
+        "response_time": 1.931870937347412,
+        "tokens": 13
+    },
+    {
+        "model": "mistral",
+        "prompt": "if all Bloops are Razzies and all Razzies are Lulus, are all Bloops definitely Lulus?",
+        "response": " Based on the information provided, all Bloops are Razzies and all Razzies are Lulus. Therefore, logically speaking, all Bloops should be Lulus. However, this assumes a perfect correlation between Bloops being Razzies and Razzies being Lulus, which might not always hold true in real-world scenarios due to potential exceptions or variables not accounted for in the given information.",
+        "response_time": 8.435032367706299,
+        "tokens": 85
+    },
+    {
+        "model": "mistral",
+        "prompt": "What is the chemical symbol for gold?",
+        "response": " The chemical symbol for Gold is Au, which comes from the Latin word for gold, \"Aurum.\"",
+        "response_time": 2.5466537475585938,
+        "tokens": 23
+    },
+    {
+        "model": "mistral",
+        "prompt": "Translate 'Where is the library' into Filipino",
+        "response": " Sa Tagalog, ang \"Where is the library\" ay nakatali sa \"Saan ang library na 'to?\"",
+        "response_time": 3.0977165699005127,
+        "tokens": 28
+    },
+    {
+        "model": "phi3",
+        "prompt": "What is the capital of Philippines",
+        "response": "The capital of the Philippines is Manila. It serves as both a city and a municipality within Metro Manila, which is its metropolitan area. Established in January 1571 by Spanish conquistador Miguel Lopez de Legazpi during his arrival to establish trade with local chieftains after he managed to defeat the locals on August 24 of that same year and was recognized as their king, it has since developed into a bustling metropolis. Today, Manila is not just an important financial center but also home to many historical landmarks such as Fort Santiago and Intramuros which are remnants from its colonial past under the Spanish Empire.",
+        "response_time": 12.898419380187988,
+        "tokens": 144
+    },
+    {
+        "model": "phi3",
+        "prompt": "Write a 5-word sentence about a robot eating pizza.",
+        "response": "Robot savored cheesy, pepperoni delight.",
+        "response_time": 1.3671612739562988,
+        "tokens": 14
+    },
+    {
+        "model": "phi3",
+        "prompt": "if all Bloops are Razzies and all Razzies are Lulus, are all Bloops definitely Lulus?",
+        "response": "Yes, using deductive reasoning. If we assume that the statements \"all Bloops are Razzies\" (statement A) and \"all Razzies are Lulus\" (statement B) are true: then by transitive property of equivalence in logic all Bloops must be Lulus because they fall under the category of 'Razzies', which themselves belong to 'Lulus'. Therefore, it is logically valid to conclude that all Bloops would definitely be classified as Lulus. This follows a simple syllogistic argument pattern: If A then B (Bloop implies Razzo) and if B then C (Razzo means Lulu). Thus, we can deduce from these premises using deductive reasoning - All bloops are lulus.",
+        "response_time": 8.290581703186035,
+        "tokens": 162
+    },
+    {
+        "model": "phi3",
+        "prompt": "What is the chemical symbol for gold?",
+        "response": "The chemical symbol for gold is Au. This symbol comes from the Latin word 'aurum' which means shining dawn or glowing morning. Gold, as an element with atomic number 79 on the periodic table, retains this heritage in its modern scientific representation and nomenclature.",
+        "response_time": 3.4080607891082764,
+        "tokens": 63
+    },
+    {
+        "model": "phi3",
+        "prompt": "Translate 'Where is the library' into Filipino",
+        "response": "Magkano ang gilid ng paliparan?",
+        "response_time": 1.1605994701385498,
+        "tokens": 13
+    },
+    {
+        "model": "llama3.2",
+        "prompt": "What is the capital of Philippines",
+        "response": "The capital of the Philippines is Manila.",
+        "response_time": 16.53293800354004,
+        "tokens": 9
+    },
+    {
+        "model": "llama3.2",
+        "prompt": "Write a 5-word sentence about a robot eating pizza.",
+        "response": "Robot devoured the entire pie.",
+        "response_time": 0.8084938526153564,
+        "tokens": 8
+    },
+    {
+        "model": "llama3.2",
+        "prompt": "if all Bloops are Razzies and all Razzies are Lulus, are all Bloops definitely Lulus?",
+        "response": "A classic example of a logical paradox!\n\nLet's break it down step by step:\n\n1. All Bloops are Razzies (B)\n2. All Razzies are Lulus (L)\n\nNow, we want to know: Are all Bloops definitely Lulus?\n\nFrom the premises, we can conclude that every Bloop is also a Razzie (since all Bloops are Razzies). And since every Razzie is also a Lulu (from premise 2), we can conclude that every Bloop is indeed a Lulu.\n\nIn other words, the transitive property of identity applies here. If A implies B and B implies C, then A implies C. So, if all Bloops are Razzies and all Razzies are Lulus, it logically follows that all Bloops are Lulus.\n\nSo, to answer your question: Yes, all Bloops are definitely Lulus!",
+        "response_time": 9.0284423828125,
+        "tokens": 188
+    },
+    {
+        "model": "llama3.2",
+        "prompt": "What is the chemical symbol for gold?",
+        "response": "The chemical symbol for gold is Au. It comes from the Latin word \"Aurum,\" which means gold.",
+        "response_time": 1.5395944118499756,
+        "tokens": 23
+    },
+    {
+        "model": "llama3.2",
+        "prompt": "Translate 'Where is the library' into Filipino",
+        "response": "The translation of \"Where is the library\" in Filipino is:\n\n\"Saan ang aklatan?\"\n\nOr, in a more informal tone:\n\n\"Kung saan ang libro?\"",
+        "response_time": 2.1759214401245117,
+        "tokens": 37
+    }
 ]
