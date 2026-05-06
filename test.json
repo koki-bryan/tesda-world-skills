@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "item": "Laptop",
+    "status": "In Stock",
+    "tags": ["electronics", "work"]
+  },
+  {
+    "id": 2,
+    "item": "Coffee Mug",
+    "status": "Out of Stock",
+    "tags": ["kitchen", "lifestyle"]
+  },
+  {
+    "id": 3,
+    "item": "Desk Chair",
+    "status": "In Stock",
+    "tags": ["furniture", "office"]
+  }
+]
