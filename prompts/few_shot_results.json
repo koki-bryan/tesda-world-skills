@@ -1,0 +1,22 @@
+[
+    {
+        "user_input": "Could you clarify if the annual subscription includes access to the mobile app?",
+        "category": "question"
+    },
+    {
+        "user_input": "The checkout page keeps crashing every time I try to enter my shipping address.",
+        "category": "complaint"
+    },
+    {
+        "user_input": "Your customer support team is incredible; they resolved my issue in under five minutes!",
+        "category": "praise"
+    },
+    {
+        "user_input": "Why am I being charged a convenience fee that wasn't mentioned during signup?",
+        "category": "complaint"
+    },
+    {
+        "user_input": "The dark mode implementation is flawless and much easier on my eyes during late shifts.",
+        "category": "praise"
+    }
+]
