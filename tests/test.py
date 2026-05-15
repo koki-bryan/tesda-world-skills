@@ -17,3 +17,10 @@ print(results)
 filePath="/home/competitor/project/testData.json"
 with open(filePath, "w") as f:
     json.dump(results, f, indent=4)
+    
+a = {"name": "Sean"}
+b = a
+
+b["age"] = 20
+
+print(a)
