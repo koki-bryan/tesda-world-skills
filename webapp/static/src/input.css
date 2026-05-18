@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer base {
+  button {
+    @apply hover:cursor-pointer text-blue-950;
+  }
+}

@@ -1,0 +1,97 @@
+{%extends 'base.html' %} {%block title%}AI Chatbot{%endblock%} {%block content
+%}
+<section class="h-screen flex">
+  <!-- SIDEBAR -->
+  <aside
+    class="from-white to-yellow-50 bg-linear-to-b h-full w-80 text-black p-4 flex flex-col gap-4"
+  >
+    <!-- LOGO, NAME, SIDEBAR ICON CONTAINER -->
+    <div class="flex items-center justify-between py-6">
+      <!-- AIDA AND ICON -->
+      <div class="flex items-center gap-4">
+        <img
+          src="{{url_for('static', filename='img/bp_logo.png')}}"
+          alt="bagong pilipinas logo"
+          class="size-12"
+        />
+        <h1 class="text-3xl font-semibold tracking-wide">Aida</h1>
+      </div>
+
+      <!-- SIDEBAR ICON TOGGLE CONTAINER -->
+      <div>
+        <button class="flex items-center">
+          <img
+            src="{{url_for('static', filename='assets/icons/side_open.svg')}}"
+            alt="sidebar icon"
+            class="size-6"
+          />
+        </button>
+      </div>
+    </div>
+
+    <!-- NEW CHAT BUTTON -->
+    <button
+      class="text-left bg-slate-200 p-2 rounded-lg flex gap-4 items-center"
+    >
+      <img
+        src="{{url_for('static', filename='assets/icons/new_chat.svg')}}"
+        alt=""
+      />New Chat
+    </button>
+
+    <h2 class="p-2">Recent Chat:</h2>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main
+    class="from-blue-100 via-white to-red-100 bg-linear-to-br w-full h-full flex flex-col justify-between flex-1"
+  >
+    <!-- CHAT AREA CONTAINER (Allows scrolling) -->
+    <div
+      class="max-w-4xl w-full mx-auto flex flex-col h-full overflow-y-auto p-4 flex-1"
+    >
+      <!-- HEADING CONTAINER (Hidden on send) -->
+      <div
+        class="flex flex-col gap-4 my-auto items-center justify-center"
+        id="main-section-heading"
+      >
+        <h1 class="text-4xl text-center">
+          Hello I am Aida, how can I help you today?
+        </h1>
+        <p class="font-mono max-w-md mx-auto text-center">
+          Ask Aida a question, draft an email, or translate across ASEAN
+          languages!
+        </p>
+      </div>
+
+      <!-- NEW: DYNAMIC MESSAGES GO HERE -->
+      <div id="chat-messages" class="flex flex-col gap-4 w-full mt-4"></div>
+    </div>
+
+    <!-- INPUT CONTAINER -->
+    <div class="w-full max-w-6xl mx-auto mb-8 px-4 flex items-center gap-2">
+      <button>
+        <img
+          src="{{url_for('static', filename='assets/icons/plus.svg')}}"
+          alt="plus icon"
+          class="size-10"
+        />
+      </button>
+      <!-- ADDED ID HERE -->
+      <textarea
+        id="user-input"
+        rows="1"
+        placeholder="Ask Aida anything..."
+        class="rounded-full bg-slate-200 w-full p-4 text-xl resize-none shadow-md"
+      ></textarea>
+      <button class="send-btn">
+        <img
+          src="{{url_for('static', filename='assets/icons/send.svg')}}"
+          alt="send button"
+          class="size-8"
+        />
+      </button>
+    </div>
+  </main>
+</section>
+{%endblock%}
