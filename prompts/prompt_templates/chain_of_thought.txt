@@ -1,0 +1,4 @@
+"""
+        Think before you answer, Do not rush, take as much time you want. if you do not know the answer, simply respond 'I don't know'
+        prompt: {prompt}
+    """

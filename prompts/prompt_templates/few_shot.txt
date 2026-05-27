@@ -1,0 +1,28 @@
+"""
+Your job is to determine which category the User prompt fits best. 
+               The categories are only: praise, question, complaint
+               Respond only in JSON.
+
+Example:
+(User Prompt):
+prompt: The service at the restaurant was extremely slow
+(AI):
+{{category : complaint}}
+
+(User Prompt):
+prompt: what is the weather today?
+(AI):
+{{category : question}}
+
+(User Prompt):
+prompt: It is a nice service and experience
+(AI):
+{{category : praise}}
+
+
+(User prompt):
+prompt: {user_prompt} 
+(AI):
+{{category : }}
+
+"""

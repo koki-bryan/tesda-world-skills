@@ -3,9 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AI Chat Interface</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='dist/output.css')}}"
+    />
   </head>
   <body>
-    Hello World
+    <h1>AI Chat</h1>
+
+    <div id="app-container" role="main">
+      <aside id="sidebar" aria-label="Chat history and sessions">
+        <h2>History</h2>
+        <ul role="list"></ul>
+
+        <button id="new-chat-button">+ New Chat</button>
+      </aside>
+
+      <section id="chat-main-content">
+        <!-- CONTROL PANEL: Global AI Configuration -->
+        <div id="control-panel" role="region">
+          <label for="ai-personality-select">AI Personality / Model:</label>
+          <select id="ai-personality-select">
+            <option value="creative">Default</option>
+            <option value="coder">Coding Assistant</option>
+            <option value="concise" selected>Support</option>
+            <option value="academic">Assistant</option>
+          </select>
+        </div>
+
+        <!-- CHAT DISPLAY WINDOW -->
+        <div id="chat-window" role="log" aria-live="polite"></div>
+      </section>
+    </div>
   </body>
 </html>
