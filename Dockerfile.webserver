@@ -1,8 +1,0 @@
-FROM python:3.11-slim
-
-RUN apt-get update && apt-get install -y nginx openssl apache2-utils curl
-
-RUN pip install flask gunicorn requests langchain flask-limiter
-
-CMD ["tail", "-f", "/dev/null"]
-

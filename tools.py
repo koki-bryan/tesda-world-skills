@@ -1,63 +1,46 @@
 import json, os
 
-allowed_ch = "0123456789+-()*/^% ."
 
-#main function
-def safeCalculate(expr: str):
-    conv_expr = expr.replace("^", "**")
-    try: 
-        for ch in conv_expr:
-            if ch not in allowed_ch:
-                return "Invalid Expression"
-        # We use a dict for the result to safely handle the eval return
-        return eval(conv_expr, {"__builtins__": None})
-    except ZeroDivisionError:
-        return "Math Error"
-    except Exception:
-        return "Invalid Expression"
-
-def calculate(expression: str) -> int | float | str:
+allowed_ch = "0123456789-+*/^"
+def calculate(expr:str):
     
-    return safeCalculate(expression)
+    for ch in expr:
+        if ch not in allowed_ch:
+            return "Invalid expression"
 
-#getting the weather data
-def get_weather(city:str):
-    fp="/home/competitor/data/weather_data.json"
-    
-    try:
-        with open(fp, 'r') as f:
-            data=json.load(f)
+        try:
+            return eval(expr, {'__builtins__' : None})
+        except ZeroDivisionError:
+            return "Cannot divide a number to 0"
+        except Exception:
+            return "Error"
         
-        for d in data:
-            if(d.get('city').lower() == city.lower()):
-                temp=d.get('temperature')
-                cond=d.get('condition')
-                
-                if(temp is None or cond is None):
-                    return "Weather Data not found"
-                
-                return f"{d['city']}: {temp} °C, {cond}"
-        return "Weather Data not found"
-    except (FileNotFoundError, json.JSONDecodeError):
-        return "Weather Data not found"
-
-#file reader
-def read_file(filename:str):
-    base_dir="/home/competitor/data/files/"
-    abs_base_dir=os.path.abspath(base_dir)
+def get_weather(city:str):
+    fp = "/home/competitor/data/weather_data.json"
     
-    #requested directory
-    req_dir=os.path.abspath(os.path.join(abs_base_dir, filename))
+    with open(fp, 'r') as f:
+        data = json.load(f)
+        
+    for d in data:
+        if d.get("city").lower() == city.lower():
+            return d
+        return "not found"
+  
+def read_file(file:str):
+    base_dir = "/home/competitor/data/files/"
+    abs_path = os.path.abspath(base_dir)
     
-    if not req_dir.startswith(abs_base_dir):
-        return "Restricted path"
+    req_dir = os.path.abspath(os.path.join(base_dir, file))
+    
+    if not req_dir.startswith(abs_path):
+        return "Restricted"
     
     try:
         with open(req_dir, 'r') as f:
-            return f.read()
+            data = f.read()
+            return data
     except FileNotFoundError:
-        return "File not found"
+        return "file not found"
     except Exception as e:
-        return str(e)
-
-print(read_file("tex.txt"))
+        return f"Error {str(e)}"
+    

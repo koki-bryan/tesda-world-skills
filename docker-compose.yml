@@ -1,23 +1,32 @@
-
 services:
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
+    restart: unless-stopped
     ports:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
+    environment:
+      OLLAMA_HOST: "0.0.0.0:11434"
+      OLLAMA_KEEP_ALIVE: "10m" # keep models in VRAM between calls (lower latency)
+      OLLAMA_NUM_PARALLEL: "2" # 2 concurrent requests per model
+      OLLAMA_MAX_LOADED_MODELS: "2" # cap RAM/VRAM thrash
+      DO_NOT_TRACK: "1" # belt-and-suspenders telemetry off
     deploy:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
-    networks:
-      - ai-net
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    networks: [ai-net]
 
   webserver:
     image: ai-webserver:latest
     container_name: webserver
+    restart: unless-stopped
+    depends_on: [ollama]
     ports:
       - "5000:5000"
       - "80:80"
@@ -25,11 +34,41 @@ services:
     volumes:
       - ./webapp:/app
       - ./nginx:/etc/nginx/conf.d
-    networks:
-      - ai-net
+    working_dir: /app
+    environment:
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      LANGCHAIN_TRACING_V2: "false" # disables LangSmith outbound calls
+      HF_HUB_OFFLINE: "1" # huggingface_hub never touches the internet
+      TRANSFORMERS_OFFLINE: "1" # transformers stays local
+      ANONYMIZED_TELEMETRY: "false" # chromadb / langchain anon-telemetry off
+      DO_NOT_TRACK: "1"
+      PYTHONUNBUFFERED: "1" # logs flush immediately
+      PYTHONDONTWRITEBYTECODE: "1"
+    # Startup notes (host ships this; competitor must not modify):
+    #   1. Remove Debian's default nginx site — it `listen 80;`s and would
+    #      conflict with the `listen 80;` in the competitor's default.conf
+    #      (Task 1 A3, 2 marks; Task 4 D3 HTTP→HTTPS redirect, 2 marks).
+    #   2. Day 1: app.py does not exist yet (Task 4 / Day 2 work). Start nginx
+    #      so the auth proxy can be configured, and only launch gunicorn once
+    #      /app/app.py exists. After the competitor writes app.py and runs
+    #      `docker compose restart webserver`, gunicorn auto-starts — passing
+    #      Task 4 D3's "Services auto-start on container restart" (1.5 marks).
+    command: >
+      bash -lc "rm -f /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default;
+                mkdir -p /var/log/nginx /run/nginx;
+                service nginx start;
+                cd /app;
+                if [ -f app.py ]; then
+                  exec gunicorn --bind 0.0.0.0:5000 --workers 2 app:app;
+                else
+                  echo '[webserver] app.py not present yet (Day 1 mode). nginx default site disabled. Container kept alive for Task 1 A3 config work.';
+                  exec tail -f /dev/null;
+                fi"
+    networks: [ai-net]
 
 networks:
   ai-net:
+    driver: bridge
 
 volumes:
   ollama_data:

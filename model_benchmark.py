@@ -1,46 +1,39 @@
-import requests, time, json
+import requests, json, time
 
-# Array creation similar to JS, syntax =[]
-PROMPTS=[
-    "What is the capital of Philippines",
-    "Write a 5-word sentence about a robot eating pizza.",
-    "if all Bloops are Razzies and all Razzies are Lulus, are all Bloops definitely Lulus?",
-    "What is the chemical symbol for gold?",
-    "Translate 'Where is the library' into Filipino"
+prompts=[
+    "why is the sky blue?",
+    "how to learn something fast?",
+    "what ai AI and ML?",
+    "how can I learn AI",
+    "what are you?"
 ]
 
-ollama_url="http://localhost:11434/api/generate"
-MODELS=["mistral", "phi3", "llama3.2"]
-result_output=[]
+models=["mistral", "llama3.2", "phi3"]
 
-for i in MODELS:
-    print(f"-----{i.capitalize()}-----")
+OLLAMA_URL='http://localhost:11434/api/generate'
+
+overall_result=[]
+
+for model in models:
+    print(model)
     
-    for j, h in enumerate(PROMPTS):
+    for count, prompt in enumerate(prompts):
+        start_time = time.time()
         payload={
-            "model":i,
-            "prompt":h,
-            "stream":False
+            "model": model,
+            "prompt": prompt,
+            "stream": False
         }
-        start=time.time()
-        r=requests.post(ollama_url, json=payload) #you need to convert the dictionary to json
-        data=r.json()
-        end=time.time()
+
+        r= requests.post(OLLAMA_URL, json=payload)
+        data = r.json()
+        end_time = time.time()
         
-        responseTime=(end-start)
+        response = data.get('response')
+        tokens = data.get('eval_count')
+        overall_time = end_time - start_time
         
-        #Compiling the results of each model
-        result_payload={
-            "model":i,
-            "prompt":h,
-            "response":data['response'],
-            "response_time":responseTime,
-            "tokens": data['eval_count'],
-        }
-        result_output.append(result_payload)
-        
-        print(f"[{j+1}/5] {h} | {responseTime:.2f}s {data['eval_count']} tokens")
-        
-output_path="/home/competitor/project/benchmark_results.json"
-with open(output_path, "w") as f:
-    json.dump(result_output, f, indent=4)
+        overall_result.append({"prompt": prompt, "response": response, "tokens": tokens, "time":overall_time})
+
+with open('/home/competitor/project/benchmark_results.json', 'w') as f:
+    json.dump(overall_result, f, indent=4)
