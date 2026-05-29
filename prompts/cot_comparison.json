@@ -1,17 +1,17 @@
 [
   {
     "prompt": "what is the 1/3 of 20",
-    "cot_res": " The third of twenty (20) is 6 and 2/3 (or 6.67 in decimal form). This can be calculated by dividing 20 by 3, which results in approximately 6 with a remainder of 2/3.",
-    "basic_res": " To find one-third of 20, you simply multiply 20 by 1/3. In mathematics, when you want to write a fraction as a division, you can flip it and put a denominator in front instead of below:\n\n1/3 * 20 = (1 * 20) / 3 = 6\\_\\frac{2}{3}\n\nSince the result is not a whole number, it's usually expressed as a mixed number. In this case, 6 and 2/3 are the whole number part and fractional part respectively."
+    "cot_res": " The third part of twenty is six. So, to find one-third of twenty, we multiply 6 by three. Therefore, 1/3 of 20 equals 6 * 3 = 18.",
+    "basic_res": " The third of 20, or 1/3 of 20, is approximately 6.67 (rounded to two decimal places).\n\nThis can be calculated by dividing 20 by 3:\n\n20 / 3 = 6.666666666666667 \u2248 6.67\n\nSo, approximately one-third of 20 is 6.67."
   },
   {
     "prompt": "what is the next in sequence 2, 4, 6, 8, 10, _",
-    "cot_res": " The next number in this sequence would be 12. This is an arithmetic sequence where each term increases by 2 from the previous one.",
-    "basic_res": " The pattern here seems to be that each number increases by 2. So, if we continue this pattern, the next number in the sequence would be 12 (10 + 2)."
+    "cot_res": " The next number in the sequence would be 12. This sequence appears to be increasing by 2 each time.",
+    "basic_res": " The sequence you provided appears to be increasing by 2 each time. So if we continue this pattern, the next number in the sequence would be 10 + 2 = 12."
   },
   {
     "prompt": "Evaluate the expression 8 * 2 + (9/0)",
-    "cot_res": " In this expression, we encounter a division by zero which is an undefined operation in mathematics. Therefore, we cannot evaluate the expression as it stands. The result would be undefined or undefined behavior, depending on the context. If we ignore the division by zero and follow the order of operations (PEMDAS/BODMAS), the expression simplifies to 8*2 = 16, but this is not the actual value of the expression due to the division by zero. So, I'd say the correct answer would be \"The expression cannot be evaluated as it contains a division by zero.\"",
-    "basic_res": " I'm glad to help with mathematical questions! However, I should clarify that this question is undefined due to division by zero. In mathematics, division by zero is undefined because it would result in an answer that does not make sense or is not defined. So, the expression 8 * 2 + (9/0) is undefined."
+    "cot_res": " The expression given contains a division by zero, which is undefined in mathematics. Therefore, we cannot evaluate the expression as it stands. However, if we could ignore the division by zero for the sake of this question, then the expression would be simplified as follows:\n\n8 * 2 = 16\nand then add the result of (9/0) which is undefined, so the final result would be 16 + undefined. Therefore, the expression has an undefined value due to division by zero.",
+    "basic_res": " The expression cannot be evaluated because division by zero is undefined in mathematics. So, the result of 8 * 2 + (9/0) would be undefined.\n\nHowever, if we were to evaluate the expression without the division by zero, it would be 16 + 9 = 25. But remember that this isn't the actual result because the original expression includes an operation that is undefined, so the final answer should be undefined as well."
   }
 ]

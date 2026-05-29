@@ -1,5 +1,7 @@
-import json
+arr=[]
 
-d=json.loads("{'category':'complaint'}")
-print(d)
+x=['d']
 
+arr.append(x)
+
+print(arr)

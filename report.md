@@ -1,0 +1,11 @@
+EXECUTIVE SUMMARY
+
+    This competition taught and gave me an idea on how AI Computing works especially in our own devices. I genuinely thought that running conversational AI models would require massive and powerful devices but this competition taught me that it could be ran even on your very own laptops. During the competition, I learned the different conversational abilities of each model especially when it comes to their intellectual thinking, conversational retention and effective prompt engineering techniques. Out of the 3 prompt engineering techniques we did, I find few shot and chain of thought prompting techniques the most effective in these kind of models. Few-shot teaches the model patterns, on how it should respond and what should be the output. Chain of thought on the other hand lets the model think and take their time resulting into better and concise answer.
+
+TOP 3 TECHNICAL CHALLENGES AND RESOLUTIONS
+
+    - The first technical challenge I encountered is configuring NGINX as a reverse proxy for ollama's /api/tags endpoint. I forgot the syntax of the ssl configs. With trial and error of changing the prefixes, I managed to make it run but due to other configuration errors, the ollama doesn't proxy my request to the right path. I wasn't able to fix this, but the right solution at that moment was to restart the container or reload NGINX in which I only remembered when day 2 started. Miraculously, after I opened my laptop on day 2, NGINX proxies my requests properly, I just needed to restart the container.
+
+    - Second, I struggled a lot with, agent tool calling implementation, I wasn't able to find a resolution for this as I wasn't able to find out the right solution. I was stuck on the mental model of running and calling the tools directly in the terminal but turns out there are other ways to call a function
+
+    -Lastly, I struggled a lot in deciding on where should I serve my static files? I tried rendering in flask, in nginx and none of them worked as the servers are fighting over redirects and url endpoints. The solution for this is to pick one, when i decided on making nginx serve just static files like html, js, css, and made flask to serve only backend api's, everything worked out.

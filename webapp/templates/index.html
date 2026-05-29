@@ -3,38 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/dist/output.css" />
     <title>AI Chat Interface</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='dist/output.css')}}"
-    />
   </head>
   <body>
-    <h1>AI Chat</h1>
-
-    <div id="app-container" role="main">
-      <aside id="sidebar" aria-label="Chat history and sessions">
-        <h2>History</h2>
+    <div id="app-container" role="main" class="flex gap-0.5">
+      <aside
+        id="sidebar"
+        aria-label="Chat history and sessions"
+        class="bg-neutral-200 p-4 flex flex-col gap-4"
+      >
+        <h2 class="text-4xl mt-16">History</h2>
         <ul role="list"></ul>
 
-        <button id="new-chat-button">+ New Chat</button>
-      </aside>
+        <button
+          id="new-chat-button"
+          class="bg-slate-900 text-white p-4 rounded-xl hover:cursor-pointer"
+        >
+          + New Chat
+        </button>
 
-      <section id="chat-main-content">
-        <!-- CONTROL PANEL: Global AI Configuration -->
-        <div id="control-panel" role="region">
-          <label for="ai-personality-select">AI Personality / Model:</label>
-          <select id="ai-personality-select">
-            <option value="creative">Default</option>
+        <div id="control-panel" role="region" class="flex flex-col gap-2">
+          <label
+            for="ai-personality-select"
+            class="bg-slate-900 text-white p-4 rounded-md"
+            >AI Personality / Model:</label
+          >
+          <select
+            id="ai-personality-select"
+            class="bg-slate-900 text-white p-4 rounded-md hover:cursor-pointer"
+          >
+            <option value="mistral" selected>Default</option>
             <option value="coder">Coding Assistant</option>
-            <option value="concise" selected>Support</option>
+            <option value="concise">Support</option>
             <option value="academic">Assistant</option>
           </select>
         </div>
+      </aside>
 
+      <section
+        id="chat-main-content"
+        class="bg-neutral-200 flex-1 min-h-screen h-screen flex flex-col justify-between"
+      >
         <!-- CHAT DISPLAY WINDOW -->
-        <div id="chat-window" role="log" aria-live="polite"></div>
+        <div
+          id="chat-window"
+          role="log"
+          aria-live="polite"
+          class="p-2 flex flex-col gap-4"
+        ></div>
+
+        <!-- USER INPUT -->
+        <div class="mx-auto mb-16 flex gap-8">
+          <input
+            type="text"
+            class="bg-black p-4 px-12 h-12 w-3/4 text-white rounded-full flex-1"
+            placeholder="Enter text here..."
+            id="user-input"
+          />
+          <button
+            id="send-btn"
+            class="h-12 p-4 px-6 rounded-full flex items-center justify-center bg-black text-white hover:cursor-pointer"
+          >
+            Send
+          </button>
+        </div>
       </section>
     </div>
   </body>
+  <script src="/static/js/chat.js"></script>
 </html>
